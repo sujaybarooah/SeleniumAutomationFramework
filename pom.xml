@@ -11,6 +11,27 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+
+        <selenium-java.version>4.1.3</selenium-java.version>
+        <testng.version>7.5</testng.version>
+        <assertj-core.version>3.22.0</assertj-core.version>
+        <assertj-joda-time.version>2.2.0</assertj-joda-time.version>
+        <joda-time.version>2.10.14</joda-time.version>
+        <extentreports.version>5.0.9</extentreports.version>
+        <jackson-databind.version>2.13.2.2</jackson-databind.version>
+        <jackson-core.version>2.13.2</jackson-core.version>
+        <org.apache.commons.io.version>2.4</org.apache.commons.io.version>
+        <poi-ooxml.version>5.2.2</poi-ooxml.version>
+        <poi-ooxml-schemas.version>4.1.2</poi-ooxml-schemas.version>
+        <poi-scratchpad.version>5.2.2</poi-scratchpad.version>
+        <poi.version>5.2.2</poi.version>
+        <ooxml-schemas.version>1.4</ooxml-schemas.version>
+        <poi-excelant.version>5.2.2</poi-excelant.version>
+        <openxml4j.version>1.0-beta</openxml4j.version>
+        <commons-email.version>1.5</commons-email.version>
+        <rest-assured.version>5.0.1</rest-assured.version>
+        <commons-io.version>2.11.0</commons-io.version>
+
     </properties>
 
     <dependencies>
@@ -18,28 +39,28 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.1.3</version>
+            <version>${selenium-java.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.5</version>
+            <version>${testng.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.22.0</version>
+            <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-joda-time -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-joda-time</artifactId>
-            <version>2.2.0</version>
+            <version>${assertj-joda-time.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -47,94 +68,91 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.10.14</version>
+            <version>${joda-time.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>5.0.9</version>
+            <version>${extentreports.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.2.2</version>
+            <version>${jackson-databind.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.13.2</version>
+            <version>${jackson-core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.directory.studio</groupId>
             <artifactId>org.apache.commons.io</artifactId>
-            <version>2.4</version>
+            <version>${org.apache.commons.io.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>5.2.2</version>
+            <version>${poi-ooxml.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>
-            <version>4.1.2</version>
+            <version>${poi-ooxml-schemas.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
-            <version>5.2.2</version>
+            <version>${poi-scratchpad.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>5.2.2</version>
+            <version>${poi.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>ooxml-schemas</artifactId>
-            <version>1.4</version>
+            <version>${ooxml-schemas.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-excelant</artifactId>
-            <version>5.2.2</version>
+            <version>${poi-excelant.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>openxml4j</artifactId>
-            <version>1.0-beta</version>
+            <version>${openxml4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-email</artifactId>
-            <version>1.5</version>
+            <version>${commons-email.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.3.3</version>
+            <version>${rest-assured.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.11.0</version>
+            <version>${commons-io.version}</version>
         </dependency>
-
-
-
     </dependencies>
 </project>
