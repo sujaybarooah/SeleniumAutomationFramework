@@ -5,6 +5,7 @@ import com.sb.enums.WaitStrategy;
 import com.sb.factories.ExplicitWaitFactory;
 import com.sb.reports.ExtentLogger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class BasePage {
@@ -21,6 +22,7 @@ public class BasePage {
 
     protected void sendKeys(By by, String value, WaitStrategy waitStrategy, String elementName){
         WebElement element =ExplicitWaitFactory.performExplicitWait(waitStrategy,by);
+        element.clear();
         element.sendKeys(value);
         try {
             ExtentLogger.pass(value +" is entered successfully in the " +elementName+" field",true);
@@ -29,6 +31,26 @@ public class BasePage {
         }
 
     }
+
+    protected Boolean ifElementExist(By by, WaitStrategy waitStrategy, String elementName) {
+        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        Boolean isElementDisplayed = element.isDisplayed();
+        if (Boolean.TRUE.equals(isElementDisplayed)) {
+            try {
+                ExtentLogger.pass(elementName + " is Displayed", true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                ExtentLogger.pass(elementName + " is Not Displayed", true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return isElementDisplayed;
+    }
+
     protected String getPageTitle() {
         return DriverManager.getDriver().getTitle();
     }
