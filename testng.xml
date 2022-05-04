@@ -8,8 +8,7 @@
     </listeners>
     <test thread-count="1" name="Tests" parallel="methods"> <!--verbose="2" preserve-order="true" -->
         <classes>
-            <class name="com.sb.tests.OrangeHRMTests"/>
-            <class name="com.sb.tests.AmazonDemoTest"/>
+            <class name="com.sb.tests.SauceDemoLoginPageTests"/>
         </classes>
     </test>
 </suite>
