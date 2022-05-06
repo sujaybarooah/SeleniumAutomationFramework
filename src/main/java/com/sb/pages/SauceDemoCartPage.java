@@ -7,7 +7,7 @@ public final class SauceDemoCartPage extends BasePage{
 
     private final By buttonCheckout = By.id("checkout");
     private final By buttonContinueShopping = By.id("continue-shopping");
-    private String remove = "";
+    public String errorMessageEmptyCart = "Unable to checkout!!!";
     SauceDemoHeaderPage header = new SauceDemoHeaderPage();
     public SauceDemoMenuPage expandMenu(){
         return header.clickMenu();
@@ -16,8 +16,9 @@ public final class SauceDemoCartPage extends BasePage{
         return this;
     }
 
-    public void clickCheckout(){
+    public CheckoutStepOnePage clickCheckout(){
         click(buttonCheckout, WaitStrategy.CLICKABLE, "Checkout");
+        return new CheckoutStepOnePage();
     }
     public SauceDemoProductsPage clickContinueShopping(){
         click(buttonContinueShopping, WaitStrategy.CLICKABLE, "Continue Shopping");
