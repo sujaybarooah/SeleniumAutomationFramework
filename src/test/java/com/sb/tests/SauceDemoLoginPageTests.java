@@ -1,10 +1,9 @@
 package com.sb.tests;
 
 
-import com.sb.pages.SauceDemoCartPage;
-import com.sb.pages.SauceDemoLoginPage;
-import com.sb.pages.SauceDemoProductsPage;
+import com.sb.pages.*;
 import org.assertj.core.api.Assertions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Map;
@@ -25,5 +24,13 @@ public final class SauceDemoLoginPageTests extends BaseTest {
         Assertions.assertThat(productsPage.getPageName("Products")).isTrue();
         SauceDemoCartPage cartPage = productsPage.addItemToCart(data.get("items")).goToCart();
         Assertions.assertThat(cartPage.getPageName("Your Cart")).isTrue();
+    }
+
+    @Test
+    public void invalidDeliveryAddress(Map<String, String> data) {
+        new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+        new SauceDemoCartPage().clickCheckout();
+        SauceDemoCartPage myCartPage = new SauceDemoCartPage();
+        Assert.assertTrue(myCartPage.errorMessageEmptyCart.contains("Unable to checkout!!!"));
     }
 }
