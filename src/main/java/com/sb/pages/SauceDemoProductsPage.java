@@ -1,17 +1,31 @@
 package com.sb.pages;
 
 import com.sb.enums.WaitStrategy;
+import com.sb.utils.DynamicXpathUtils;
 import org.openqa.selenium.By;
 
 public final class SauceDemoProductsPage extends BasePage{
-
-    private final By labelProduct = By.xpath("//span[text()='Products']");
 
     public String getTitle() {
         return getPageTitle();
     }
 
-    public Boolean productLabelExists(){
-        return ifElementExist(labelProduct, WaitStrategy.PRESENCE,"Product Label");
+    // dynamic strings for page elements
+/*  private String linkInventoryItemDescription = "//*[@id='%s']/div/parent::a";
+    private String labelInventoryItemPrice = "//div[@class='inventory_item_price']";*/
+    private String buttonAddToCart = "//*[@id='add-to-cart-%s']";
+
+    SauceDemoHeaderPage header = new SauceDemoHeaderPage();
+
+    public SauceDemoProductsPage addItemToCart(String itemName){
+        String itemNameFormatted = itemName.toLowerCase().replace(" ","-");
+        String xpathOfButton = DynamicXpathUtils.getXpath(buttonAddToCart,itemNameFormatted);
+        click(By.xpath(xpathOfButton), WaitStrategy.CLICKABLE, itemName);
+        return this;
     }
+
+    public SauceDemoCartPage goToCart(){
+        return header.clickCart();
+    }
+
 }

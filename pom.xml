@@ -31,6 +31,7 @@
         <commons-email.version>1.5</commons-email.version>
         <rest-assured.version>5.0.1</rest-assured.version>
         <commons-io.version>2.11.0</commons-io.version>
+        <webdrivermanager.version>5.1.1</webdrivermanager.version>
 
     </properties>
 
@@ -154,5 +155,13 @@
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+
     </dependencies>
 </project>
