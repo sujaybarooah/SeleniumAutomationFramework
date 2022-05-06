@@ -30,8 +30,9 @@ public final class CheckoutStepOnePage extends BasePage{
         return new CheckoutStepTwoPage();
     }
 
-//    public CheckoutStepOnePage clickCancelButton() {
-//        click(buttonCancel, WaitStrategy.PRESENCE, "Cancel Button");
-//        //TODO: need to return to Cart page
-//    }
+  public SauceDemoCartPage clickCancelButton() {
+     click(buttonCancel, WaitStrategy.PRESENCE, "Cancel Button");
+       return new SauceDemoCartPage();
+ }
+
 }
