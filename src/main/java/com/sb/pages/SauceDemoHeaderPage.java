@@ -12,9 +12,9 @@ public final class SauceDemoHeaderPage extends BasePage{
         return getPageTitle();
     }
 
-    public SauceDemoHeaderPage clickMenu(){
+    public SauceDemoMenuPage clickMenu(){
         click(buttonHamburger, WaitStrategy.PRESENCE, "Hamburger Menu");
-        return new SauceDemoHeaderPage();
+        return new SauceDemoMenuPage();
     }
 
     public SauceDemoCartPage clickCart(){

@@ -6,10 +6,6 @@ import org.openqa.selenium.By;
 
 public final class SauceDemoProductsPage extends BasePage{
 
-    public String getTitle() {
-        return getPageTitle();
-    }
-
     // dynamic strings for page elements
 /*  private String linkInventoryItemDescription = "//*[@id='%s']/div/parent::a";
     private String labelInventoryItemPrice = "//div[@class='inventory_item_price']";*/
@@ -18,9 +14,12 @@ public final class SauceDemoProductsPage extends BasePage{
     SauceDemoHeaderPage header = new SauceDemoHeaderPage();
 
     public SauceDemoProductsPage addItemToCart(String itemName){
-        String itemNameFormatted = itemName.toLowerCase().replace(" ","-");
-        String xpathOfButton = DynamicXpathUtils.getXpath(buttonAddToCart,itemNameFormatted);
-        click(By.xpath(xpathOfButton), WaitStrategy.CLICKABLE, itemName);
+        String[] items = itemName.split(",");
+        for (String item: items) {
+            String itemNameFormatted = item.toLowerCase().replace(" ","-");
+            String xpathOfButton = DynamicXpathUtils.getXpath(buttonAddToCart,itemNameFormatted);
+            click(By.xpath(xpathOfButton), WaitStrategy.CLICKABLE, itemNameFormatted);
+        }
         return this;
     }
 
@@ -28,4 +27,7 @@ public final class SauceDemoProductsPage extends BasePage{
         return header.clickCart();
     }
 
+    public SauceDemoMenuPage expandMenu(){
+        return header.clickMenu();
+    }
 }
