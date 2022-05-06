@@ -14,7 +14,7 @@ public final class SauceDemoProductsPage extends BasePage{
     SauceDemoHeaderPage header = new SauceDemoHeaderPage();
 
     public SauceDemoProductsPage addItemToCart(String itemName){
-        String[] items = itemName.split(",");
+        String[] items = itemName.split(";");
         for (String item: items) {
             String itemNameFormatted = item.toLowerCase().replace(" ","-");
             String xpathOfButton = DynamicXpathUtils.getXpath(buttonAddToCart,itemNameFormatted);

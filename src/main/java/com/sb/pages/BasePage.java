@@ -14,6 +14,7 @@ public class BasePage {
 
     protected void click(By by, WaitStrategy waitStrategy, String elementName){
         WebElement element =ExplicitWaitFactory.performExplicitWait(waitStrategy,by);
+
         element.click();
         try {
             ExtentLogger.pass(elementName+ " was Clicked",true);

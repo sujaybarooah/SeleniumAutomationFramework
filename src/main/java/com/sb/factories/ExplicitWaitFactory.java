@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ExplicitWaitFactory {
-
     public static WebElement performExplicitWait(WaitStrategy wait, By by){
         WebElement element=null;
         if (wait==WaitStrategy.CLICKABLE){
