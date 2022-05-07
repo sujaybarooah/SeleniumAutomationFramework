@@ -10,11 +10,10 @@ import org.openqa.selenium.WebElement;
 
 public class BasePage {
 
-    protected final String pageLabel = "//span[text()='%s']";
+    public static final String PAGELABEL = "//span[text()='%s']";
 
     protected void click(By by, WaitStrategy waitStrategy, String elementName){
         WebElement element =ExplicitWaitFactory.performExplicitWait(waitStrategy,by);
-
         element.click();
         try {
             ExtentLogger.pass(elementName+ " was Clicked",true);
@@ -58,7 +57,7 @@ public class BasePage {
         return DriverManager.getDriver().getTitle();
     }
     public Boolean getPageName(String pageName){
-        String labelXpath = DynamicXpathUtils.getXpath(pageLabel,pageName);
+        String labelXpath = DynamicXpathUtils.getXpath(PAGELABEL,pageName);
         return ifElementExist(By.xpath(labelXpath), WaitStrategy.PRESENCE,pageName);
     }
 }
