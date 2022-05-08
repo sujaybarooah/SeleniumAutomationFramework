@@ -15,9 +15,9 @@ public final class SauceDemoCartPage extends BasePage{
         return this;
     }
 
-    public CheckoutStepOnePage clickCheckout(){
+    public SauceDemoCheckoutStepOnePage clickCheckout(){
         click(buttonCheckout, WaitStrategy.CLICKABLE, "Checkout");
-        return new CheckoutStepOnePage();
+        return new SauceDemoCheckoutStepOnePage();
     }
     public SauceDemoProductsPage clickContinueShopping(){
         click(buttonContinueShopping, WaitStrategy.CLICKABLE, "Continue Shopping");

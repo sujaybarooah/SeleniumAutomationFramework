@@ -3,17 +3,17 @@ package com.sb.pages;
 import com.sb.enums.WaitStrategy;
 import org.openqa.selenium.By;
 
-public final class CheckoutStepTwoPage extends BasePage{
+public final class SauceDemoCheckoutStepTwoPage extends BasePage{
     private final By buttonFinish = By.id("finish");
     private final By buttonCancel = By.id("cancel");
 
-    public SuccessPage clickFinishButton() {
+    public SauceDemoSuccessPage clickFinishButton() {
         click(buttonFinish, WaitStrategy.PRESENCE, "Finish Button");
-        return new SuccessPage();
+        return new SauceDemoSuccessPage();
     }
 
-    public CheckoutStepOnePage clickCancelButton() {
+    public SauceDemoCheckoutStepOnePage clickCancelButton() {
         click(buttonCancel, WaitStrategy.PRESENCE, "Cancel Button");
-        return new CheckoutStepOnePage();
+        return new SauceDemoCheckoutStepOnePage();
     }
 }
