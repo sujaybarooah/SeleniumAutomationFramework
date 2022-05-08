@@ -10,6 +10,8 @@ public final class CheckoutStepOnePage extends BasePage {
     private final By buttonContinue = By.id("continue");
     private final By buttonCancel = By.id("cancel");
 
+    private final By checkoutError = By.xpath("//button[@class='error-button']");
+
     public CheckoutStepOnePage enterDeliveryAddressFirstName(String deliveryAddFirstName) {
         sendKeys(textboxDeliveryAddFirstName, deliveryAddFirstName, WaitStrategy.PRESENCE, "Delivery Address First Name");
         return this;
@@ -37,6 +39,10 @@ public final class CheckoutStepOnePage extends BasePage {
     public SauceDemoCartPage clickCancelButton() {
         click(buttonCancel, WaitStrategy.PRESENCE, "Cancel Button");
         return new SauceDemoCartPage();
+    }
+
+    public Boolean isCheckoutErrorPresent(){
+        return ifElementExist(checkoutError,WaitStrategy.VISIBLE,"mandatory first name");
     }
 
 }
