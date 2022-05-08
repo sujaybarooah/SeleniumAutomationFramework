@@ -18,6 +18,7 @@ public final class FrameworkConstants {
     private static final String ITERATIONDATASHEET = "DATA";
     private static final int EXPLICITWAIT = 10;
     private static final int RETRYFAILEDTESTS = 1;
+    private static final int SLOWDOWNTESTEXECUTION = 1000;
 
 
     public static String getExtentReportFilePath() throws Exception {
@@ -55,6 +56,9 @@ public final class FrameworkConstants {
     }
     public static int getRetryFailedTests() {
         return RETRYFAILEDTESTS;
+    }
+    public static int getSlowdownTestExecution() {
+        return SLOWDOWNTESTEXECUTION;
     }
 
 }

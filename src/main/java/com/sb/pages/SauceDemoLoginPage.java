@@ -8,6 +8,7 @@ public final class SauceDemoLoginPage extends BasePage{
     private final By textboxUsername = By.id("user-name");
     private final By textboxPassword = By.id("password");
     private final By buttonLogin = By.id("login-button");
+    private final By buttonValidationError = By.xpath("//button[@class='error-button']");
 
     public SauceDemoLoginPage enterUserName(String username) {
         sendKeys(textboxUsername,username, WaitStrategy.PRESENCE, "Username");
@@ -19,12 +20,19 @@ public final class SauceDemoLoginPage extends BasePage{
         return this;
     }
 
-    public SauceDemoProductsPage clickLogin() {
+    public void clickLogin() {
         click(buttonLogin, WaitStrategy.PRESENCE, "Login Button");
-        return new SauceDemoProductsPage();
+        /*if(Boolean.TRUE.equals(isValidationErrorPresent())){
+            return this;
+        }
+        return new SauceDemoProductsPage();*/
     }
     public String getTitle() {
         return getPageTitle();
+    }
+
+    public Boolean isValidationErrorPresent(){
+       return ifElementExist(buttonValidationError,WaitStrategy.VISIBLE,"Invalid Login");
     }
 
 }

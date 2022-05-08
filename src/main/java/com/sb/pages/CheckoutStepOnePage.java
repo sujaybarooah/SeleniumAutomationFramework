@@ -25,9 +25,9 @@ public final class CheckoutStepOnePage extends BasePage{
         return this;
     }
 
-    public CheckoutStepTwoPage clickContinueButton() {
+    public void clickContinueButton() {
         click(buttonContinue, WaitStrategy.PRESENCE, "Continue Button");
-        return new CheckoutStepTwoPage();
+        //return new CheckoutStepTwoPage();
     }
 
   public SauceDemoCartPage clickCancelButton() {

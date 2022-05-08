@@ -6,11 +6,11 @@ import org.openqa.selenium.By;
 
 public final class SauceDemoMenuPage extends BasePage {
 
-    private final By linkAllItems = By.id("//*[@id='inventory_sidebar_link']");
-    private final By buttonCloseMenu = By.id ("react-burger-cross-btn");
+    private final By linkAllItems = By.xpath("//*[@id='inventory_sidebar_link']");
+    //private final By buttonCloseMenu = By.id ("react-burger-cross-btn");
     //private final By linkAbout = By.id("//*[@id='about_sidebar_link']");
-    private final By linkLogout = By.id("//*[@id='logout_sidebar_link']");
-    private final By linkResetApp = By.id("//*[@id='reset_sidebar_link']");
+    private final By linkLogout = By.xpath("//*[@id='logout_sidebar_link']");
+    private final By linkResetApp = By.xpath("//*[@id='reset_sidebar_link']");
 
     public BasePage clickOnMenuItem(String menuText) {
         if (menuText.contains("Logout")) {
@@ -23,7 +23,9 @@ public final class SauceDemoMenuPage extends BasePage {
             click(linkAllItems, WaitStrategy.CLICKABLE, menuText);
             return new SauceDemoProductsPage();
         }
-        else return this;
+        else {
+            return this;
+        }
     }
 
 }
