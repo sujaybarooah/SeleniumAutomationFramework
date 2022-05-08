@@ -3,7 +3,7 @@ package com.sb.pages;
 import com.sb.enums.WaitStrategy;
 import org.openqa.selenium.By;
 
-public final class CheckoutStepOnePage extends BasePage{
+public final class CheckoutStepOnePage extends BasePage {
     private final By textboxDeliveryAddFirstName = By.id("first-name");
     private final By textboxDeliveryAddLastName = By.id("last-name");
     private final By textboxDeliveryAddZipCode = By.id("postal-code");
@@ -17,7 +17,7 @@ public final class CheckoutStepOnePage extends BasePage{
 
     public CheckoutStepOnePage enterDeliveryAddressLastName(String deliveryAddLastName) {
         sendKeys(textboxDeliveryAddLastName, deliveryAddLastName, WaitStrategy.PRESENCE, "Delivery Address Last Name");
-        return  this;
+        return this;
     }
 
     public CheckoutStepOnePage enterDeliveryAddressZipCode(String deliveryAddZipCode) {
@@ -30,9 +30,13 @@ public final class CheckoutStepOnePage extends BasePage{
         return new CheckoutStepTwoPage();
     }
 
-  public SauceDemoCartPage clickCancelButton() {
-     click(buttonCancel, WaitStrategy.PRESENCE, "Cancel Button");
-       return new SauceDemoCartPage();
- }
+    public String getTitle() {
+        return getPageTitle();
+    }
+
+    public SauceDemoCartPage clickCancelButton() {
+        click(buttonCancel, WaitStrategy.PRESENCE, "Cancel Button");
+        return new SauceDemoCartPage();
+    }
 
 }

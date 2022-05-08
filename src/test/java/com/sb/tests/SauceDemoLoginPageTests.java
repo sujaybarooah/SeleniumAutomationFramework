@@ -33,4 +33,11 @@ public final class SauceDemoLoginPageTests extends BaseTest {
         SauceDemoCartPage myCartPage = new SauceDemoCartPage();
         Assert.assertTrue(myCartPage.errorMessageEmptyCart.contains("Unable to checkout!!!"));
     }
+
+    @Test void checkoutWithEmptyCart(Map<String, String> data) {
+        new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+        new SauceDemoCartPage().clickCheckout();
+        SauceDemoCartPage myCartPage = new SauceDemoCartPage();
+        Assert.assertTrue(myCartPage.errorMessageEmptyCart.contains("Unable to checkout!!!"));
+    }
 }
