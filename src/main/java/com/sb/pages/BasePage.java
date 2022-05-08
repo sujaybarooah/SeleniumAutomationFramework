@@ -1,13 +1,11 @@
 package com.sb.pages;
 
-import com.sb.driver.Driver;
 import com.sb.driver.DriverManager;
 import com.sb.enums.WaitStrategy;
 import com.sb.factories.ExplicitWaitFactory;
 import com.sb.reports.ExtentLogger;
 import com.sb.utils.DynamicXpathUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasePage {
 
@@ -65,8 +63,7 @@ public class BasePage {
     }
 
     public static void highlightElement(WebElement element) {
-        String originalStyle = element.getAttribute("style");
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
-        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]", element, "style", originalStyle + "border: 2px solid red;");
+        js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "background: yellow; border: 2px solid yellow;");
     }
 }
