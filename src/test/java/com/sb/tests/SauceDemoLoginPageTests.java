@@ -13,31 +13,44 @@ public final class SauceDemoLoginPageTests extends BaseTest {
     }
 
     @Test
-    public void loginLogoutTest(Map<String, String> data) {
-        SauceDemoProductsPage productsPage = new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
-        Assertions.assertThat(productsPage.getPageName("Products")).isTrue();
+    public void invalidCredentialsTest(Map<String, String> data) {
+        SauceDemoLoginPage loginPage = new SauceDemoLoginPage();
+        loginPage.enterUserName(data.get("username"))
+                .enterPassword(data.get("password"))
+                .clickLogin();
+        Assertions.assertThat(loginPage.isValidationErrorPresent()).isTrue();
     }
-
     @Test
     public void addItemsToCartTest(Map<String, String> data) {
-        SauceDemoProductsPage productsPage = new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+        SauceDemoLoginPage loginPage = new SauceDemoLoginPage();
+        loginPage.enterUserName(data.get("username"))
+                .enterPassword(data.get("password"))
+                .clickLogin();
+        SauceDemoProductsPage productsPage = new SauceDemoProductsPage();
         Assertions.assertThat(productsPage.getPageName("Products")).isTrue();
-        SauceDemoCartPage cartPage = productsPage.addItemToCart(data.get("items")).goToCart();
+        productsPage.addItemToCart(data.get("items"))
+                .goToCart();
+        SauceDemoCartPage cartPage = new SauceDemoCartPage();
         Assertions.assertThat(cartPage.getPageName("Your Cart")).isTrue();
+        cartPage.clickCheckout();
+        CheckoutStepOnePage checkoutStepOnePage = new CheckoutStepOnePage();
+        Assertions.assertThat(checkoutStepOnePage.getPageName("Checkout: Your Information")).isTrue();
+        checkoutStepOnePage.enterDeliveryAddressFirstName(data.get("firstname"))
+                .enterDeliveryAddressLastName(data.get("lastname"))
+                .enterDeliveryAddressZipCode(data.get("zip"))
+                .clickContinueButton();
+        CheckoutStepTwoPage checkoutStepTwoPagePage = new CheckoutStepTwoPage();
+        Assertions.assertThat(checkoutStepTwoPagePage.getPageName("Checkout: Overview")).isTrue();
+        checkoutStepTwoPagePage.clickFinishButton();
+        SuccessPage successPage = new SuccessPage();
+        Assertions.assertThat(successPage.getPageName("Checkout: Complete!")).isTrue();
+        successPage.clickBackHomeButton().expandMenu().clickOnMenuItem("Logout");
     }
 
-    @Test
+/*    @Test
     public void invalidDeliveryAddress(Map<String, String> data) {
-        new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
-        new SauceDemoCartPage().clickCheckout();
-        SauceDemoCartPage myCartPage = new SauceDemoCartPage();
-        Assert.assertTrue(myCartPage.errorMessageEmptyCart.contains("Unable to checkout!!!"));
-    }
-
-    @Test void checkoutWithEmptyCart(Map<String, String> data) {
-        new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
-        new SauceDemoCartPage().clickCheckout();
-        SauceDemoCartPage myCartPage = new SauceDemoCartPage();
-        Assert.assertTrue(myCartPage.errorMessageEmptyCart.contains("Unable to checkout!!!"));
-    }
+        SauceDemoProductsPage productsPage = (SauceDemoProductsPage) new SauceDemoLoginPage().enterUserName(data.get("username")).enterPassword(data.get("password")).clickLogin();
+        //CheckoutStepOnePage myCartPage = productsPage.goToCart().clickCheckout();
+        Assert.assertTrue(productsPage.goToCart().clickCheckout().contains("Unable to checkout!!!"));
+    }*/
 }
