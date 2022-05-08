@@ -1,12 +1,13 @@
 package com.sb.pages;
 
+import com.sb.driver.Driver;
 import com.sb.driver.DriverManager;
 import com.sb.enums.WaitStrategy;
 import com.sb.factories.ExplicitWaitFactory;
 import com.sb.reports.ExtentLogger;
 import com.sb.utils.DynamicXpathUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasePage {
 
@@ -14,6 +15,7 @@ public class BasePage {
 
     protected void click(By by, WaitStrategy waitStrategy, String elementName){
         WebElement element =ExplicitWaitFactory.performExplicitWait(waitStrategy,by);
+        highlightElement(element);
         element.click();
         try {
             ExtentLogger.pass(elementName+ " was Clicked",true);
@@ -24,6 +26,7 @@ public class BasePage {
 
     protected void sendKeys(By by, String value, WaitStrategy waitStrategy, String elementName){
         WebElement element =ExplicitWaitFactory.performExplicitWait(waitStrategy,by);
+        highlightElement(element);
         element.clear();
         element.sendKeys(value);
         try {
@@ -59,5 +62,11 @@ public class BasePage {
     public Boolean getPageName(String pageName){
         String labelXpath = DynamicXpathUtils.getXpath(PAGELABEL,pageName);
         return ifElementExist(By.xpath(labelXpath), WaitStrategy.PRESENCE,pageName);
+    }
+
+    public static void highlightElement(WebElement element) {
+        String originalStyle = element.getAttribute("style");
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]", element, "style", originalStyle + "border: 2px solid red;");
     }
 }

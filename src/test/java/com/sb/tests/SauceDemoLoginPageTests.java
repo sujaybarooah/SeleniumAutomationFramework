@@ -66,6 +66,7 @@ public final class SauceDemoLoginPageTests extends BaseTest {
                 .enterDeliveryAddressLastName(data.get("lastname"))
                 .enterDeliveryAddressZipCode(data.get("zip"))
                 .clickContinueButton();
+
         Assertions.assertThat(checkoutStepOnePage.isCheckoutErrorPresent()).isTrue();
     }
 
