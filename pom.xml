@@ -18,7 +18,7 @@
         <assertj-joda-time.version>2.2.0</assertj-joda-time.version>
         <joda-time.version>2.10.14</joda-time.version>
         <extentreports.version>5.0.9</extentreports.version>
-        <jackson-databind.version>2.13.2.2</jackson-databind.version>
+        <jackson-databind.version>2.13.4.2</jackson-databind.version>
         <jackson-core.version>2.13.2</jackson-core.version>
         <org.apache.commons.io.version>2.4</org.apache.commons.io.version>
         <poi-ooxml.version>5.2.2</poi-ooxml.version>
