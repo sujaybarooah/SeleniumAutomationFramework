@@ -31,7 +31,7 @@
         <commons-email.version>1.5</commons-email.version>
         <rest-assured.version>5.0.1</rest-assured.version>
         <commons-io.version>2.11.0</commons-io.version>
-        <webdrivermanager.version>5.1.1</webdrivermanager.version>
+        <webdrivermanager.version>6.1.0</webdrivermanager.version>
 
     </properties>
 
