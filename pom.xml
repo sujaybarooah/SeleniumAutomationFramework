@@ -21,7 +21,7 @@
         <jackson-databind.version>2.13.4.2</jackson-databind.version>
         <jackson-core.version>2.13.2</jackson-core.version>
         <org.apache.commons.io.version>2.4</org.apache.commons.io.version>
-        <poi-ooxml.version>5.2.2</poi-ooxml.version>
+        <poi-ooxml.version>5.4.0</poi-ooxml.version>
         <poi-ooxml-schemas.version>4.1.2</poi-ooxml-schemas.version>
         <poi-scratchpad.version>5.2.2</poi-scratchpad.version>
         <poi.version>5.2.2</poi.version>
