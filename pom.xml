@@ -19,7 +19,7 @@
         <joda-time.version>2.10.14</joda-time.version>
         <extentreports.version>5.0.9</extentreports.version>
         <jackson-databind.version>2.13.4.2</jackson-databind.version>
-        <jackson-core.version>2.13.2</jackson-core.version>
+        <jackson-core.version>2.15.0</jackson-core.version>
         <org.apache.commons.io.version>2.4</org.apache.commons.io.version>
         <poi-ooxml.version>5.4.0</poi-ooxml.version>
         <poi-ooxml-schemas.version>4.1.2</poi-ooxml-schemas.version>
